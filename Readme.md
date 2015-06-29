@@ -10,6 +10,8 @@ Use the batched-task-executor with Elasticsearch to buffer index operations and 
 
 ## Getting started
 
+To use batched-task-executor, simply implement your own logic with the BatchedTaskExecutor interface. The example below uses a LoggingBatchedTaskExecutor to log Tasks to the console.
+
 ```
 // Store pending tasks in memory
 TaskBufferFactory bufferFactory = new ArrayListTaskBufferFactory();
