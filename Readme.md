@@ -6,7 +6,7 @@ A Java library used to buffer, and then execute, groups of tasks - a useful patt
 
 ## Example uses
 
-Use the batched-task-executor with Elasticsearch to buffer index operations and execute through the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+Use batched-task-executor with Elasticsearch to buffer index operations and execute through the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 
 ## Getting started
 
@@ -16,7 +16,7 @@ To use batched-task-executor, simply implement your own logic with the BatchedTa
 // Store pending tasks in memory
 TaskBufferFactory bufferFactory = new ArrayListTaskBufferFactory();
 
-// Execute tasks by logging them
+// Execute tasks by logging them. Implement your own BatchedTaskExecutor with your logic.
 BatchedTaskExecutor executor = new LoggingBatchedTaskExecutor();
 
 // Buffer five tasks with max delay of 2 seconds
