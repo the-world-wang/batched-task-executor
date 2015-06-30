@@ -32,10 +32,19 @@ public class BatchedTaskExecutorService {
 
 	private Timer bufferTimer;
 
+	private long totalTasksScheduled;
+	
 	private long totalTasksExecuted;
-
+	
 	private boolean isShutDown;
 	
+	/**
+	 * Instantiate a new service - callers must shutdown() when finish
+	 * 
+	 * @param bufferFactory A factory to return instances of the TaskBuffer implemented used to buffer Task objects
+	 * @param executor The executor that will be used to handle groups of tasks
+	 * @param config Service configuration values
+	 */
 	public BatchedTaskExecutorService(TaskBufferFactory bufferFactory, BatchedTaskExecutor executor, BatchedTaskExecutorServiceConfig config) {
 		
 		this.bufferFactory = bufferFactory;
@@ -61,6 +70,11 @@ public class BatchedTaskExecutorService {
 		}
 	}
 	
+	/**
+	 * Schedule the execution of a new task
+	 * 
+	 * @param task
+	 */
 	public void schedule(Task task) {
 
 		synchronized (bufferLock) {
@@ -75,6 +89,9 @@ public class BatchedTaskExecutorService {
 			}
 
 			buffer.add(task);
+			
+			totalTasksScheduled++;
+			
 			if (buffer.size() == config.getMaxBufferedTasks()) {
 				logger.debug("maxBufferSize reached: {}", buffer.size());
 				executeTasks();
@@ -93,6 +110,11 @@ public class BatchedTaskExecutorService {
 		}
 	}
 	
+	/**
+	 * Shut down the service, waits for existing tasks to be completed
+	 * 
+	 * @throws InterruptedException
+	 */
 	public void shutdown() throws InterruptedException {
 		synchronized (bufferLock) {
 			logger.debug("Shutting down");
@@ -107,5 +129,9 @@ public class BatchedTaskExecutorService {
 	
 	public long getTotalTasksExecuted() {
 		return totalTasksExecuted;
+	}
+	
+	public long getTotalTasksScheduled() {
+		return totalTasksScheduled;
 	}
 }

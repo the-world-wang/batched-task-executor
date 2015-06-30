@@ -91,3 +91,10 @@ BatchedTaskExecutorService service =
 	new BatchedTaskExecutorService(bufferFactory, pooledExecutor, config);
 ```
 
+# Build
+
+To build batched-task-executor to a single jar containing all dependencies, run:
+
+```
+mvn clean compile assembly:single
+```

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.flake.batchedtaskexecutor</groupId>
     <artifactId>batched-task-executor</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>batched-task-executor</name>
     <description>Collect and execute tasks in batch</description>
     <dependencies>
@@ -29,6 +29,16 @@
         </dependency>
     </dependencies>
     <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
