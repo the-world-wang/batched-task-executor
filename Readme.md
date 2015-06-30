@@ -21,7 +21,7 @@ TaskBufferFactory bufferFactory = new ArrayListTaskBufferFactory();
 // execution logic using the BatchedTaskExecutor interface.
 BatchedTaskExecutor executor = new LoggingBatchedTaskExecutor();
 
-// Buffer five tasks with max delay of 2 seconds
+// Buffer five tasks with max delay of two seconds
 int maxBufferedTasks = 5;
 int maxPendingTimeSeconds = 2;
 BatchedTaskExecutorServiceConfig config = 
@@ -48,7 +48,7 @@ service.shutdown();
 
 ```
 
-### Output
+#### Output
 
 ```
 
