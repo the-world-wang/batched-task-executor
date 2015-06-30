@@ -6,26 +6,30 @@ A Java library used to buffer, and then execute, groups of tasks - a useful patt
 
 ## Example uses
 
-Use batched-task-executor with Elasticsearch to buffer index operations and execute through the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+Use batched-task-executor with Elasticsearch to buffer index operations and then execute them using the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html).
 
 ## Getting started
 
-To use batched-task-executor, simply implement your own logic with the BatchedTaskExecutor interface. The example below uses a LoggingBatchedTaskExecutor to log Tasks to the console.
+To use batched-task-executor, simply implement your own logic using the BatchedTaskExecutor interface. The example below uses a LoggingBatchedTaskExecutor to log Tasks to the console.
 
-```
-// Store pending tasks in memory
+```java
+// For this example, store pending tasks in memory. You may implement your own 
+// buffer (backed with MySQL or Redis, for example) using the TaskBuffer interface.
 TaskBufferFactory bufferFactory = new ArrayListTaskBufferFactory();
 
-// Execute tasks by logging them. Implement your own BatchedTaskExecutor with your logic.
+// For this example, execute tasks by logging them. You may implement your own 
+// execution logic using the BatchedTaskExecutor interface.
 BatchedTaskExecutor executor = new LoggingBatchedTaskExecutor();
 
 // Buffer five tasks with max delay of 2 seconds
 int maxBufferedTasks = 5;
 int maxPendingTimeSeconds = 2;
-BatchedTaskExecutorServiceConfig config = new BatchedTaskExecutorServiceConfig(maxBufferedTasks, maxPendingTimeSeconds);
+BatchedTaskExecutorServiceConfig config = 
+	new BatchedTaskExecutorServiceConfig(maxBufferedTasks, maxPendingTimeSeconds);
 
 // Create the service
-BatchedTaskExecutorService service = new BatchedTaskExecutorService(bufferFactory, executor, config);
+BatchedTaskExecutorService service = 
+	new BatchedTaskExecutorService(bufferFactory, executor, config);
 
 // Run some tasks, these will be executed in groups
 for (int i = 0; i < 10; i++) {
@@ -41,6 +45,36 @@ Thread.sleep(3000);
 
 // Always shutdown the service to allow tasks to finish
 service.shutdown();
+
+```
+
+### Output
+
+```
+
+maxBufferSize reached: 5
+Executing 5 tasks
+Received 5 tasks
+	ab19c49b-0af5-4740-9e67-46a4873ec814
+	adb194d6-728d-4702-98da-535687cecdca
+	c61cae3f-b0b5-4319-ab6f-408ff83e2359
+	0e56cc82-5b98-4833-8822-c52722def3ad
+	6ce0c792-47cc-4408-b902-188c067b1c2b
+maxBufferSize reached: 5
+Executing 5 tasks
+Received 5 tasks
+	e23b28e7-ab45-415e-a5f2-e6254e109d51
+	180bfef0-0ef3-47dc-91a6-43d3715c68b7
+	f73c0458-6db0-4abd-b63b-1b3d8a87d3f9
+	2cad7aad-6871-4c13-b0fa-e18ff8870907
+	66135065-508f-486b-9d2f-2ef58a3a3dbb
+maxPendingTaskTimeSeconds reached: 2
+Executing 2 tasks
+Received 2 tasks
+	bf160472-c95d-4a08-8abd-82bdb378bcc7
+	64800f43-705f-450d-8a0e-93bda57c44ac
+Shutting down
+
 ```
 
 ## Multithreading
