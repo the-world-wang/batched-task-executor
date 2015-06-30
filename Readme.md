@@ -4,6 +4,8 @@
 
 A Java library used to buffer, and then execute, groups of tasks - a useful pattern when interacting with systems that are more efficient when accessed in bulk.
 
+The service may be configured to execute a group of tasks after a maximum number of tasks have been queued, after a maximum amount of time has passed, or both. This ensures that tasks are executed in a timely fashion, while still being grouped in the most efficient way for the application.
+
 ## Example uses
 
 Use batched-task-executor with Elasticsearch to buffer index operations and then execute them using the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html).
