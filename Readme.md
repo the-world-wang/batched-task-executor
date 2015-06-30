@@ -4,7 +4,7 @@
 
 A Java library used to buffer, and then execute, groups of tasks - a useful pattern when interacting with systems that are more efficient when accessed in bulk.
 
-The service may be configured to execute a group of tasks after a maximum number of tasks have been queued, after a maximum amount of time has passed, or both. This ensures that tasks are executed in a timely fashion, while still being grouped in the most efficient way for the application.
+The BatchedTaskExecutorService may be configured to execute a group of tasks after a maximum number have been queued, after a amount of time has passed, or both. This ensures that tasks are executed in a timely fashion, while still being grouped in the most efficient way for the application.
 
 ## Example uses
 
@@ -33,7 +33,7 @@ BatchedTaskExecutorServiceConfig config =
 BatchedTaskExecutorService service = 
 	new BatchedTaskExecutorService(bufferFactory, executor, config);
 
-// Run some tasks, these will be executed in groups
+// Run some tasks, these will be executed in groups of five
 for (int i = 0; i < 10; i++) {
 	service.schedule(new Task(UUID.randomUUID().toString()));
 }
@@ -81,5 +81,13 @@ Shutting down
 
 ## Multithreading
 
-Use the PooledBatchTaskExecutor to execute groups of tasks concurrently.
+To run groups of tasks concurrently, simply wrap your BatchedTaskExecutor in the PooledBatchTaskExecutor.
+
+```
+int poolSize = 10;
+PooledBatchTaskExecutor pooledExecutor = 
+	new PooledBatchTaskExecutor(myBatchedTaskExecutor, poolSize, poolSize);
+BatchedTaskExecutorService service = 
+	new BatchedTaskExecutorService(bufferFactory, pooledExecutor, config);
+```
 
