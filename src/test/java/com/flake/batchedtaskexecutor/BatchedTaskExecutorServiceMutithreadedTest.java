@@ -30,7 +30,7 @@ public class BatchedTaskExecutorServiceMutithreadedTest {
 	@Before
 	public void init() {
 		BatchedTaskExecutorServiceConfig config = new BatchedTaskExecutorServiceConfig(MAX_BUFFER_SIZE, MAX_PENDING_TIME_SECONDS);
-		service = new BatchedTaskExecutorService(new ArrayListTaskBufferFactory(), new PooledBatchTaskExecutor(new DelayedBatchTaskExecutorFactory(2000), 3, 5), config);
+		service = new BatchedTaskExecutorService(new ArrayListTaskBufferFactory(), new PooledBatchedTaskExecutor(new DelayedBatchTaskExecutorFactory(2000), 3, 5), config);
 	}
 	
 	@Test

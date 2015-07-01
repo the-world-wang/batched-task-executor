@@ -87,7 +87,7 @@ Shutting down
 
 ## Multithreading
 
-To run groups of tasks concurrently, simply wrap your BatchedTaskExecutor in the PooledBatchTaskExecutor.
+To run groups of tasks concurrently, simply wrap your BatchedTaskExecutor in the PooledBatchedTaskExecutor.
 
 ```
 int poolSize = 10;

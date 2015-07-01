@@ -3,7 +3,7 @@ package com.flake.batchedtaskexecutor;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class PooledBatchTaskExecutor implements BatchedTaskExecutor {
+public class PooledBatchedTaskExecutor implements BatchedTaskExecutor {
 
 	private BatchedTaskExecutorFactory factory;
 	
@@ -13,14 +13,14 @@ public class PooledBatchTaskExecutor implements BatchedTaskExecutor {
 	
 	private TimeUnit shutdownTimeUnit;
 	
-	public PooledBatchTaskExecutor(BatchedTaskExecutorFactory factory, int poolSize, int queueSize, long shutdownTimeout, TimeUnit shutdownTimeUnit) {
+	public PooledBatchedTaskExecutor(BatchedTaskExecutorFactory factory, int poolSize, int queueSize, long shutdownTimeout, TimeUnit shutdownTimeUnit) {
 		this.factory = factory;
 		executor = new BlockingThreadPoolExecutor(poolSize, queueSize);
 		this.shutdownTimeout = shutdownTimeout;
 		this.shutdownTimeUnit = shutdownTimeUnit;
 	}
 	
-	public PooledBatchTaskExecutor(BatchedTaskExecutorFactory factory, int poolSize, int queueSize) {
+	public PooledBatchedTaskExecutor(BatchedTaskExecutorFactory factory, int poolSize, int queueSize) {
 		this(factory, poolSize, queueSize, Long.MAX_VALUE, TimeUnit.DAYS);
 	}
 	
