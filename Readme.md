@@ -48,7 +48,7 @@ for (int i = 0; i < 10; i++) {
 service.schedule(new Task(UUID.randomUUID().toString()));
 service.schedule(new Task(UUID.randomUUID().toString()));
 
-// Now wait...the two pending tasks will be executed after the pending time is reached
+// Now wait...the two tasks will be executed after the pending time is reached
 Thread.sleep(3000);
 
 // Always shutdown the service to allow tasks to finish
