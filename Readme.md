@@ -4,7 +4,7 @@
 
 A Java library used to buffer, and then execute, groups of tasks - a useful pattern when interacting with systems that are more efficient when accessed in bulk.
 
-The BatchedTaskExecutorService may be configured to execute a group of tasks after a maximum number have been queued, after a amount of time has passed, or both. This ensures that tasks are executed in a timely fashion, while still being grouped in the most efficient way for the application.
+The BatchedTaskExecutorService may be configured to execute a group of tasks after a maximum number have been queued, after an amount of time has passed, or both. This ensures that tasks are executed in a timely fashion, while still being grouped in the most efficient way for the application.
 
 ## Example uses
 
@@ -91,7 +91,7 @@ BatchedTaskExecutorService service =
 	new BatchedTaskExecutorService(bufferFactory, pooledExecutor, config);
 ```
 
-# Build
+## Build
 
 To build batched-task-executor to a single jar containing all dependencies, run:
 
