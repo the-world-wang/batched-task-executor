@@ -18,7 +18,7 @@ Use batched-task-executor to [combine INSERT statements](http://dev.mysql.com/do
 
 ## Getting started
 
-To use batched-task-executor, simply implement your own logic using the BatchedTaskExecutor interface. The example below uses a LoggingBatchedTaskExecutor to log Tasks to the console.
+To use batched-task-executor, simply implement your own logic using the BatchedTaskExecutor interface. The example below uses a LoggingBatchedTaskExecutor to log tasks to the console.
 
 ```java
 // For this example, store pending tasks in memory. You may implement your own 
