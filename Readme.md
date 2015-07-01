@@ -6,9 +6,15 @@ A Java library used to buffer, and then execute, groups of tasks - a useful patt
 
 The BatchedTaskExecutorService may be configured to execute a group of tasks after a maximum number have been queued, after an amount of time has passed, or both. This ensures that tasks are executed in a timely fashion, while still being grouped in the most efficient way for the application.
 
-## Example uses
+## Use cases
+
+### Elasticsearch
 
 Use batched-task-executor with Elasticsearch to buffer index operations and then execute them using the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html).
+
+### MySQL
+
+Use batched-task-executor to [combine INSERT statements](http://dev.mysql.com/doc/refman/5.0/en/insert-speed.html) into a single command - reducing connection, sending, and parsing time. 
 
 ## Getting started
 
@@ -42,7 +48,7 @@ for (int i = 0; i < 10; i++) {
 service.schedule(new Task(UUID.randomUUID().toString()));
 service.schedule(new Task(UUID.randomUUID().toString()));
 
-// But now wait...pending tasks will be executed after pending time is reached
+// Now wait...the two pending tasks will be executed after the pending time is reached
 Thread.sleep(3000);
 
 // Always shutdown the service to allow tasks to finish
