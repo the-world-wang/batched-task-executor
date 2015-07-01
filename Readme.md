@@ -10,7 +10,7 @@ The BatchedTaskExecutorService may be configured to execute a group of tasks aft
 
 ### Elasticsearch
 
-Use batched-task-executor with Elasticsearch to buffer index operations and then execute them using the [Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html).
+Use batched-task-executor with the [Elasticsearch Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html) to buffer index operations and execute them efficiently.
 
 ### MySQL
 
