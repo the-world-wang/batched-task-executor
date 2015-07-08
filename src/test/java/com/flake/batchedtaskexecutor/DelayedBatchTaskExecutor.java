@@ -3,8 +3,7 @@ package com.flake.batchedtaskexecutor;
 import java.util.List;
 
 /**
- * A BatchedTaskExecutor with a configurable delay, useful for testing. A no-op
- * when used with a delay of 0.
+ * A BatchedTaskExecutor with a configurable delay, useful for testing
  * 
  * @author careykevin
  *
