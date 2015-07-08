@@ -44,7 +44,7 @@ public class BatchedTaskExecutorServiceMutithreadedTest {
 		threads.invokeAll(workers);
 		service.shutdown();
 		assertEquals((NUM_THREADS * NUM_ITERATIONS), service.getTotalTasksExecuted());
-		assertEquals(service.getTotalTasksExecuted(), DelayedBatchTaskExecutor.TOTAL_TASKS_EXECUTED);
+		assertEquals(service.getTotalTasksExecuted(), DelayedBatchTaskExecutor.totalTasksExecuted);
 	}
 
 	class SchedulerTask implements Runnable {

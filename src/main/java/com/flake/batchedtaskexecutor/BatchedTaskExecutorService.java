@@ -127,6 +127,11 @@ public class BatchedTaskExecutorService {
 		}
 	}
 	
+	public void resetStatus() {
+		totalTasksScheduled = 0;
+		totalTasksExecuted = 0;
+	}
+	
 	public long getTotalTasksExecuted() {
 		return totalTasksExecuted;
 	}

@@ -13,7 +13,7 @@ public class DelayedBatchTaskExecutor implements BatchedTaskExecutor {
 
 	private long delayMillis;
 	
-	public static int TOTAL_TASKS_EXECUTED = 0;
+	public static int totalTasksExecuted = 0;
 	
 	public DelayedBatchTaskExecutor(long delayMillis) {
 		this.delayMillis = delayMillis;
@@ -27,7 +27,7 @@ public class DelayedBatchTaskExecutor implements BatchedTaskExecutor {
 	public void execute(List<Task> tasks) {
 		try {
 			Thread.sleep(delayMillis);
-			TOTAL_TASKS_EXECUTED += tasks.size();
+			totalTasksExecuted += tasks.size();
 		} catch (InterruptedException ex) {
 			ex.printStackTrace();
 		}
