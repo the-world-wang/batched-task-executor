@@ -92,7 +92,7 @@ To run groups of tasks concurrently, simply wrap your BatchedTaskExecutor in the
 ```
 int poolSize = 10;
 PooledBatchedTaskExecutor pooledExecutor = 
-	new PooledBatchedTaskExecutor(myBatchedTaskExecutor, poolSize, poolSize);
+	new PooledBatchedTaskExecutor(myBatchedTaskExecutorFactory, poolSize, poolSize);
 BatchedTaskExecutorService service = 
 	new BatchedTaskExecutorService(bufferFactory, pooledExecutor, config);
 ```
