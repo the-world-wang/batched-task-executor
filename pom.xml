@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.flake.batchedtaskexecutor</groupId>
     <artifactId>batched-task-executor</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>batched-task-executor</name>
     <description>Collect and execute tasks in batch</description>
     <dependencies>
