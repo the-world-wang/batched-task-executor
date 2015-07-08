@@ -41,6 +41,9 @@ BatchedTaskExecutorService service =
 
 // Run some tasks, these will be executed in groups of five
 for (int i = 0; i < 10; i++) {
+	// A Task is a simple object with an ID, optional name-value 
+	// pairs, and an optional payload  - typically a JSON string.
+	// Here, we'll just use a random identifier.
 	service.schedule(new Task(UUID.randomUUID().toString()));
 }
 
@@ -48,7 +51,8 @@ for (int i = 0; i < 10; i++) {
 service.schedule(new Task(UUID.randomUUID().toString()));
 service.schedule(new Task(UUID.randomUUID().toString()));
 
-// Now wait...the two tasks will be executed after the pending time is reached
+// Now wait...the last two tasks will be executed after the pending 
+// time is reached.
 Thread.sleep(3000);
 
 // Always shutdown the service to allow tasks to finish
