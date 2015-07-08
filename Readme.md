@@ -100,14 +100,6 @@ BatchedTaskExecutorService service =
 
 ## Build
 
-### Build as jar
-
 ```
-mvn package
-```
-
-### Build as jar with dependencies
-
-```
-mvn clean compile assembly:single
+mvn package assembly:single
 ```
