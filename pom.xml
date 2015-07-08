@@ -5,7 +5,7 @@
     <artifactId>batched-task-executor</artifactId>
     <version>0.0.3</version>
     <name>batched-task-executor</name>
-    <description>Collect and execute tasks in batch</description>
+    <description>A Java library used to buffer, and then execute, groups of tasks</description>
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
