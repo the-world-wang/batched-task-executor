@@ -53,13 +53,11 @@ Thread.sleep(3000);
 
 // Always shutdown the service to allow tasks to finish
 service.shutdown();
-
 ```
 
 #### Output
 
 ```
-
 maxBufferSize reached: 5
 Executing 5 tasks
 Received 5 tasks
@@ -82,7 +80,6 @@ Received 2 tasks
 	bf160472-c95d-4a08-8abd-82bdb378bcc7
 	64800f43-705f-450d-8a0e-93bda57c44ac
 Shutting down
-
 ```
 
 ## Multithreading
@@ -90,7 +87,6 @@ Shutting down
 To run groups of tasks concurrently, simply wrap your BatchedTaskExecutor in the PooledBatchedTaskExecutor.
 
 ```
-...
 int poolSize = 10;
 PooledBatchedTaskExecutor pooledExecutor = 
 	new PooledBatchedTaskExecutor(myBatchedTaskExecutorFactory, poolSize, poolSize);
