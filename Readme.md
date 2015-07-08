@@ -90,6 +90,7 @@ Shutting down
 To run groups of tasks concurrently, simply wrap your BatchedTaskExecutor in the PooledBatchedTaskExecutor.
 
 ```
+...
 int poolSize = 10;
 PooledBatchedTaskExecutor pooledExecutor = 
 	new PooledBatchedTaskExecutor(myBatchedTaskExecutorFactory, poolSize, poolSize);
@@ -99,7 +100,13 @@ BatchedTaskExecutorService service =
 
 ## Build
 
-To build batched-task-executor to a single jar containing all dependencies, run:
+### Build as jar
+
+```
+mvn package
+```
+
+### Build as jar with dependencies
 
 ```
 mvn clean compile assembly:single
