@@ -1,12 +1,11 @@
-package com.flake.batchedtaskexecutor;
+package com.careykevin.batchedtaskexecutor;
 
 /**
  * A factory for creating new TaskBufferFactory objects
- * 
- * @author careykevin
  *
+ * @author careykevin
  */
 public interface TaskBufferFactory {
 
-	TaskBuffer newTaskBuffer();
+    TaskBuffer newTaskBuffer();
 }

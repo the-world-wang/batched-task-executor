@@ -5,3 +5,7 @@ logs/
 target/
 *.jar
 *.class
+*.iml
+*.ipl
+*.iws
+*.ipr

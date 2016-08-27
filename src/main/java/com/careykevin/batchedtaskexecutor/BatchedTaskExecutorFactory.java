@@ -1,12 +1,11 @@
-package com.flake.batchedtaskexecutor;
+package com.careykevin.batchedtaskexecutor;
 
 /**
  * A factory for creating new BatchedTaskExecutor instances
- * 
- * @author careykevin
  *
+ * @author careykevin
  */
 public interface BatchedTaskExecutorFactory {
 
-	public BatchedTaskExecutor newExecutor();
+    BatchedTaskExecutor newExecutor();
 }
