@@ -1,11 +1,11 @@
 package com.careykevin.batchedtaskexecutor.example;
 
-import java.util.List;
-
 import com.careykevin.batchedtaskexecutor.BatchedTaskExecutor;
 import com.careykevin.batchedtaskexecutor.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * A BatchedTaskExecutor that logs Tasks data, useful for examples

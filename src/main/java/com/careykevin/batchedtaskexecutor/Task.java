@@ -1,8 +1,8 @@
 package com.careykevin.batchedtaskexecutor;
 
-import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Map;
 
 /**
  * A unit of work that may be executed
